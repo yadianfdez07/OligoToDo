@@ -64,6 +64,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Shared\Shared.csproj" />
+	  <ProjectReference Include="..\ApiClientLibray\ApiClientLibray.csproj" />
 	</ItemGroup>
 
 </Project>
