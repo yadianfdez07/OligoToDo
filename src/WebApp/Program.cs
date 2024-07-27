@@ -1,4 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using WebApp.DataAccessLayer;
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+var connectionString = Environment.GetEnvironmentVariable("OLIGO_TODO_CONNECTION_STRING");
+builder.Configuration.GetSection("ConnectionStrings")["DefaultConnection"] = connectionString;
+
+builder.Services.AddDbContext<OligoToDoDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
